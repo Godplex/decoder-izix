@@ -87,5 +87,11 @@ h4 {
 }
 
 body {
-    overflow-x: hidden; 
-  }
+    overflow-x: hidden;
+}
+
+.position-x-button {
+    position: absolute !important;
+    top: 10px !important;
+    right: 20px !important;
+}

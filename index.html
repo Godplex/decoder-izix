@@ -21,9 +21,10 @@
   </nav>
   <div class="container pt-5">
     <div class="row pb-5">
-      <form class="col-lg-8">
-        <textarea class="form-control" id="addText" placeholder="Ingrese el texto aquí..."
-          style="height: 500px"></textarea>
+      <div class="col-lg-8 position-relative">
+        <textarea class="form-control pe-5" id="addText" placeholder="Ingrese el texto aquí..."
+          style="height: 400px"></textarea>
+        <button class="btn position-x-button d-none text-secondary" id="deleteText" type="button"><i class="fas fa-times fa-2x"></i></button>
         <p class="pt-3 pb-sm-3 pb-0 m-0 text-secondary"><i class="fas fa-exclamation-circle"></i> Solo letras sin
           acentos.</p>
         <div class="d-grid gap-2 d-md-flex justify-content-md-between">
@@ -32,17 +33,18 @@
           <button class="btn btn-outline-primary col-md-5 p-4 my-sm-0 my-2" id="decrypt" type="button"><i
               class="fas fa-unlock"></i> Desencriptar</button>
         </div>
-      </form>
+      </div>
       <div class="col-lg-4 position-relative pt-lg-0 pt-5">
-        <div class="d-flex flex-column align-items-center px-lg-5 pt-lg-5 text-center" id="no-text">
+        <div class="d-flex flex-column align-items-center px-lg-5 pt-lg-3 text-center" id="no-text">
           <img class="img-responsive d-none d-lg-block" src="img/empty-text.png" />
           <h4 class="fw-bold">Ningún mensaje fue encontrado.</h4>
           <p>Ingresa el texto que desees encriptar o desencriptar.</p>
         </div>
         <div class="d-none" id="with-text">
-          <textarea class="form-control" id="showText" style="height: 500px" readonly></textarea>
+          <textarea class="form-control" id="showText" style="height: 400px" readonly></textarea>
           <div class="d-grid gap-1 position-button d-lg-flex justify-content-lg-center">
-            <button class="btn btn-outline-primary px-md-5 p-4 my-lg-0 my-4 col-lg-10" id=copy type="button "><i
+            <button class="btn btn-outline-primary px-md-5 p-4 my-lg-0 my-4 col-lg-10" id=copy type="button"
+              data-bs-toggle="tooltip" data-bs-placement="top" title="Copiar al portapapeles"><i
                 class="fas fa-copy"></i> Copiar</button>
           </div>
         </div>
