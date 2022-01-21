@@ -8,7 +8,7 @@ var withText = document.querySelector("#with-text");
 var addText = document.querySelector("#addText");
 
 function validText(fun) {
-    var str = addText.value;
+    var str = addText.value.toLowerCase();
     if (str.length > 0) {
         noText.classList.add("d-none");
         withText.classList.remove("d-none");
