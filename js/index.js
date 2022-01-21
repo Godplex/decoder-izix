@@ -7,6 +7,20 @@ var noText = document.querySelector("#no-text");
 var withText = document.querySelector("#with-text");
 var addText = document.querySelector("#addText");
 
+const debounce = (func, wait) => {
+    let timeout;
+
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+};
+
 function validText(fun) {
     var str = addText.value.toLowerCase();
     if (str.length > 0) {
@@ -22,6 +36,7 @@ function validText(fun) {
 deleteText.addEventListener("click", function () {
     if (addText.value.length > 0) {
         addText.value = '';
+        showText.value = '';
         noText.classList.remove("d-none");
         withText.classList.add("d-none");
         addText.focus();
@@ -29,7 +44,11 @@ deleteText.addEventListener("click", function () {
 });
 
 deleteText.addEventListener("click", hideButton);
-['paste', 'keyup'].forEach(e => addText.addEventListener(e, hideButton));
+['paste', 'keyup'].forEach(e => addText.addEventListener(e, debounce(
+    function () {
+        hideButton();
+    }, 200
+)));
 
 function hideButton() {
     if (addText.value.length > 0) {
@@ -40,6 +59,7 @@ function hideButton() {
         deleteText.classList.add("d-none");
     }
 }
+
 
 
 
